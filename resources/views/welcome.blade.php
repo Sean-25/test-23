@@ -27,13 +27,13 @@
                 <div class="row g-4">
                     @isset ($characters['results'])
                         @foreach ($characters['results'] as $character)
-                            <div class="col-lg-6">
+                            <div class="col-md-6">
                                 <div class="border h-100">
                                     <div class="row h-100">
-                                        <div class="col-4">
+                                        <div class="col-sm-4">
                                             <img src="{{ $character['image'] }}" alt="{{ $character['name'] }}" width="300" height="300" style="max-width: 100%; height: auto; display: block;">
                                         </div>
-                                        <div class="col-8">
+                                        <div class="col-sm-8">
                                             <div class="p-2">
                                                 <h2 class="display-6 lh-1">{{ $character['name'] }}</h2>
                                                 <p class="m-0">Species: {{ $character['species'] }}</p>
@@ -56,7 +56,7 @@
                         @endforeach
                     @else
                         <div class="col">
-                            <p>No results</p>
+                            <p class="display-6 text-center">No results</p>
                         </div>
                     @endisset
                 </div>
