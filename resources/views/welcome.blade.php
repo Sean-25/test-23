@@ -60,6 +60,15 @@
         <main class="my-4">
             <div class="container-lg">
                 <div class="row g-4">
+                    <div class="col-12">
+                        <p class="text-end display-6 m-0">
+                            @if ($pagination)
+                                {{ $pagination->total() }} Result{{ $pagination->total() > 1 ? "s" : "" }}
+                            @else
+                                No Results
+                            @endif
+                        </p>
+                    </div>
                     @isset ($characters['results'])
                         @foreach ($characters['results'] as $character)
                             <div class="col-md-6">
@@ -89,10 +98,6 @@
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        <div class="col">
-                            <p class="display-6 text-center">No results</p>
-                        </div>
                     @endisset
                 </div>
             </div>
