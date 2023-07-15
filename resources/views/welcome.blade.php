@@ -13,6 +13,16 @@
         @isset ($characters['results'])
             @foreach ($characters['results'] as $character)
                 <h2>{{ $character['name'] }}</h2>
+                <img src="{{ $character['image'] }}" alt="{{ $character['name'] }}" width="300" height="300">
+                <p>Species: {{ $character['species'] }}</p>
+                <p>Origin: {{ $character['origin']['name'] }}</p>
+                <p>Total Episodes: {{ count($character['episode']) }}</p>
+                <p>
+                    Episodes:
+                    @foreach ($character['episode'] as $episode)
+                        <span>{{ basename($episode) }}</span>
+                    @endforeach
+                </p>
             @endforeach
         @else
             <p>No results</p>
