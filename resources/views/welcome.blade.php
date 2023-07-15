@@ -22,6 +22,41 @@
             </div>
         </header>
 
+        <section>
+            <div class="container-lg">
+                <form method="get">
+                    <div class="row align-items-end justify-content-end">
+                        <div class="col-lg-auto">
+                            <label class="form-label" for="name">Name</label>
+                            <input class="form-control" id="name" name="name" type="text" value="{{ request()->input('name') }}"/>
+                        </div>
+                        <div class="col-sm-4 col-lg-auto">
+                            <label class="form-label" for="status">Status</label>
+                            <select class="form-select" id="status" name="status">
+                                <option value=>Any</option>
+                                <option value="alive" {{ (request()->input('status') == 'alive') ? "selected" : "" }}>Alive</option>
+                                <option value="dead" {{ (request()->input('status') == 'dead') ? "selected" : "" }}>Dead</option>
+                                <option value="unknown" {{ (request()->input('status') == 'unknown') ? "selected" : "" }}>Unknown</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-lg-auto">
+                            <label class="form-label" for="gender">Gender</label>
+                            <select class="form-select" id="gender" name="gender">
+                                <option value=>Any</option>
+                                <option value="female" {{ (request()->input('gender') == 'female') ? "selected" : "" }}>Female</option>
+                                <option value="male" {{ (request()->input('gender') == 'male') ? "selected" : "" }}>Male</option>
+                                <option value="genderless" {{ (request()->input('gender') == 'genderless') ? "selected" : "" }}>Genderless</option>
+                                <option value="unknown" {{ (request()->input('gender') == 'unknown') ? "selected" : "" }}>Unknown</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 col-lg-auto mt-4">
+                            <button class="btn btn-primary w-100" id="submit" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
         <main class="my-4">
             <div class="container-lg">
                 <div class="row g-4">
