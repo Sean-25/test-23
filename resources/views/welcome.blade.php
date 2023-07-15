@@ -63,5 +63,30 @@
             </div>
         </main>
 
+        @isset ($characters['results'])
+            <footer class="my-4">
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="col-12 d-none d-md-block">
+                            {{ $pagination }}
+                        </div>
+                        <div class="col-12 d-md-none">
+                            <div class="row">
+                                <div class="col">
+                                    <a class="btn btn-primary w-100" href="{{ $pagination->previousPageUrl() }}">Previous</a>
+                                </div>
+                                <div class="col">
+                                    <a class="btn btn-primary w-100" href="{{ $pagination->nextPageUrl() }}">Next</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-end my-2">
+                            <p>Showing {{ $pagination->firstItem() }} to {{ $pagination->lastItem() }} of {{ $pagination->total() }} {{ ($pagination->total() > 1) ? "results" : "result" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        @endisset
+
     </body>
 </html>

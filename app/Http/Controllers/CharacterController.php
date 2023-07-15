@@ -10,8 +10,20 @@ class CharacterController extends Controller
 {
     public function index()
     {
+        $characters = Characters::search();
+
+        if (isset($characters['results']))
+        {
+            $pagination = new LengthAwarePaginator($characters['results'], $characters['info']['count'], '20', LengthAwarePaginator::resolveCurrentPage(), [
+                'path' => LengthAwarePaginator::resolveCurrentPath()
+            ]);
+
+            $pagination->withQueryString();
+        }
+
         return view('welcome', [
-            'characters' => Characters::search(),
+            'characters' => $characters,
+            'pagination' => $pagination ?? NULL
         ]);
     }
 }

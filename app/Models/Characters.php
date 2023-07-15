@@ -6,7 +6,7 @@ class Characters
 {
     public static function search()
     {
-        $url =  "https://rickandmortyapi.com/api/character";
+        $url =  "https://rickandmortyapi.com/api/character?" . http_build_query(request()->input());
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
